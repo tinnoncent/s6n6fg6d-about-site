@@ -344,3 +344,184 @@ h1 {
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; }
 }
+
+
+/* FOURTHWALL MOBILE EMBED FIX */
+html,
+body {
+  width: 100%;
+  max-width: 100%;
+}
+
+body {
+  display: block;
+}
+
+#embed-root {
+  width: min(100%, 1180px);
+  max-width: 100%;
+  margin-inline: auto;
+  padding-inline: 1rem;
+}
+
+.hero-layout,
+.hero-layout > *,
+.copy,
+.topline,
+.panel {
+  min-width: 0;
+}
+
+h1,
+.hero-copy,
+.copy h2,
+.finale h2,
+.eyebrow,
+.topline {
+  max-width: 100%;
+}
+
+h1 {
+  overflow-wrap: normal;
+  word-break: normal;
+}
+
+.eyebrow,
+.topline {
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 800px) {
+  #embed-root {
+    width: 100%;
+    padding-inline: 0.75rem;
+  }
+
+  .hero {
+    width: 100%;
+    padding: 1rem 0 3rem;
+  }
+
+  .rainbow-bar {
+    margin-inline: 0;
+  }
+
+  .topline {
+    flex-wrap: wrap;
+    align-items: flex-start;
+    row-gap: 0.65rem;
+    font-size: 0.66rem;
+    letter-spacing: 0.15em;
+  }
+
+  .hero-layout {
+    width: 100%;
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .hero-layout > div:first-child {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .eyebrow {
+    font-size: 0.66rem;
+    line-height: 1.6;
+    letter-spacing: 0.14em;
+  }
+
+  h1 {
+    width: 100%;
+    font-size: clamp(3.1rem, 15.5vw, 5.6rem);
+    line-height: 0.84;
+    letter-spacing: -0.08em;
+    white-space: nowrap;
+  }
+
+  .hero-copy {
+    width: 100%;
+    font-size: clamp(1.7rem, 7.5vw, 2.7rem);
+    line-height: 1.02;
+  }
+
+  .orb {
+    width: min(13rem, 58vw);
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .jump {
+    align-self: center;
+    text-align: center;
+  }
+
+  .panel {
+    width: 100%;
+    margin-inline: 0;
+    padding: 3rem 1.25rem;
+  }
+
+  .copy h2 {
+    font-size: clamp(2.35rem, 11vw, 3.35rem);
+    overflow-wrap: anywhere;
+  }
+
+  .copy p,
+  .copy .lead {
+    max-width: 100%;
+  }
+
+  .finale {
+    width: 100%;
+    padding: 6rem 0.5rem;
+  }
+
+  .finale h2 {
+    font-size: clamp(3rem, 14vw, 4rem);
+    overflow-wrap: anywhere;
+  }
+
+  .final-mark {
+    width: 100%;
+    font-size: clamp(3rem, 16vw, 5.8rem);
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: 390px) {
+  h1 {
+    font-size: 14.5vw;
+  }
+
+  .hero-copy {
+    font-size: 7.2vw;
+  }
+
+  .topline {
+    font-size: 0.6rem;
+  }
+}
+
+
+/* Exact S6N6FG6D display wordmark */
+.brand-wordmark {
+  font-family: Georgia, "Times New Roman", serif;
+  letter-spacing: -0.035em;
+  text-transform: none;
+}
+
+@media (max-width: 800px) {
+  h1.brand-wordmark {
+    font-size: clamp(2.6rem, 11.5vw, 4.6rem);
+    line-height: 0.95;
+    white-space: nowrap;
+    text-align: center;
+  }
+
+  .final-mark.brand-wordmark {
+    font-size: clamp(2.5rem, 11vw, 4.8rem);
+    line-height: 1;
+    white-space: nowrap;
+    text-align: center;
+  }
+}
