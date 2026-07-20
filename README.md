@@ -1,21 +1,12 @@
-# S6N6FG6D Rainbow Baphomet Gateway
+S6N6FG6D FINAL GATEWAY
 
-This is the corrected neon/rainbow build:
+Final design lock:
+- Original animated SVG centerpiece
+- Continuous rainbow overlay bands
+- CRT scanlines + grain
+- No timed surges
+- No page blackout
+- No opacity resets
+- Independent looping animations only
 
-- downward-pointing Baphomet pentagram
-- white-hot neon core
-- lime, emerald, cyan, magenta, and violet bloom
-- chromatic edge splitting
-- rainbow halo bands
-- CRT scanlines
-- neon flicker
-- periodic electrical surge
-- working top-level destination links
-
-Files:
-- index.html
-- style.css
-- script.js
-- vercel.json
-
-Deploy by replacing the prior gateway files in the Vercel-connected repository.
+Replace your previous deployment with these files.
