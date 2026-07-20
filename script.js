@@ -1,61 +1,28 @@
+
 (() => {
-  const root = document.documentElement;
-  const body = document.body;
+  const wordmark = document.querySelector(".wordmark");
 
-  function currentHeight() {
-    return Math.max(
-      body.scrollHeight,
-      body.offsetHeight,
-      root.clientHeight,
-      root.scrollHeight,
-      root.offsetHeight
-    );
-  }
+  const glitch = () => {
+    if (!wordmark) return;
+    wordmark.classList.add("is-glitching");
+    window.setTimeout(() => wordmark.classList.remove("is-glitching"), 520);
+  };
 
-  let lastHeight = 0;
-  let resizeFrame = 0;
+  glitch();
+  window.setInterval(glitch, 6200);
 
-  function sendResize() {
-    cancelAnimationFrame(resizeFrame);
-    resizeFrame = requestAnimationFrame(() => {
-      const height = Math.ceil(currentHeight());
-      if (height === lastHeight) return;
-      lastHeight = height;
-      window.parent.postMessage({ type: "resize", height }, "*");
-    });
-  }
+  const sendHeight = () => {
+    const height = Math.ceil(document.documentElement.scrollHeight);
+    window.parent?.postMessage({ type: "resize", height }, "*");
+  };
 
-  window.addEventListener("load", sendResize);
-  window.addEventListener("resize", sendResize);
-  document.fonts?.ready.then(sendResize);
+  window.addEventListener("load", sendHeight, { once: true });
+  window.addEventListener("resize", sendHeight);
+  document.fonts?.ready.then(sendHeight);
 
   if ("ResizeObserver" in window) {
-    const observer = new ResizeObserver(sendResize);
-    observer.observe(body);
-    observer.observe(root);
-  } else {
-    setInterval(sendResize, 1000);
+    new ResizeObserver(sendHeight).observe(document.documentElement);
   }
 
-  const revealItems = document.querySelectorAll(".reveal");
-  const revealObserver = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("visible");
-        sendResize();
-      }
-    });
-  }, { threshold: 0.08 });
-
-  revealItems.forEach((item) => revealObserver.observe(item));
-
-  document.querySelectorAll("[data-placeholder-link]").forEach((link) => {
-    link.addEventListener("click", (event) => {
-      if (link.getAttribute("href") === "#") event.preventDefault();
-    });
-  });
-
-  setTimeout(sendResize, 100);
-  setTimeout(sendResize, 500);
-  setTimeout(sendResize, 1500);
+  [120, 500, 1200].forEach((delay) => window.setTimeout(sendHeight, delay));
 })();
