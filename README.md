@@ -1,8 +1,21 @@
-Upload this folder to a GitHub repository.
+# S6N6FG6D Rainbow Baphomet Gateway
 
-Then:
-1. Log into Vercel.
-2. Import the GitHub repository.
-3. Deploy.
-4. Copy the Vercel URL.
-5. In Fourthwall add an Embed section and paste the URL.
+This is the corrected neon/rainbow build:
+
+- downward-pointing Baphomet pentagram
+- white-hot neon core
+- lime, emerald, cyan, magenta, and violet bloom
+- chromatic edge splitting
+- rainbow halo bands
+- CRT scanlines
+- neon flicker
+- periodic electrical surge
+- working top-level destination links
+
+Files:
+- index.html
+- style.css
+- script.js
+- vercel.json
+
+Deploy by replacing the prior gateway files in the Vercel-connected repository.
