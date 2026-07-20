@@ -1,28 +1,61 @@
 (() => {
   const root = document.documentElement;
-  window.addEventListener("pointermove", (e) => {
-    root.style.setProperty("--mx", `${e.clientX}px`);
-    root.style.setProperty("--my", `${e.clientY}px`);
-  }, { passive: true });
+  const body = document.body;
 
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) entry.target.classList.add("visible");
+  function currentHeight() {
+    return Math.max(
+      body.scrollHeight,
+      body.offsetHeight,
+      root.clientHeight,
+      root.scrollHeight,
+      root.offsetHeight
+    );
+  }
+
+  let lastHeight = 0;
+  let resizeFrame = 0;
+
+  function sendResize() {
+    cancelAnimationFrame(resizeFrame);
+    resizeFrame = requestAnimationFrame(() => {
+      const height = Math.ceil(currentHeight());
+      if (height === lastHeight) return;
+      lastHeight = height;
+      window.parent.postMessage({ type: "resize", height }, "*");
     });
-  }, { threshold: 0.12 });
+  }
 
-  document.querySelectorAll(".portal, footer").forEach((el) => {
-    el.classList.add("reveal");
-    observer.observe(el);
+  window.addEventListener("load", sendResize);
+  window.addEventListener("resize", sendResize);
+  document.fonts?.ready.then(sendResize);
+
+  if ("ResizeObserver" in window) {
+    const observer = new ResizeObserver(sendResize);
+    observer.observe(body);
+    observer.observe(root);
+  } else {
+    setInterval(sendResize, 1000);
+  }
+
+  const revealItems = document.querySelectorAll(".reveal");
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+        sendResize();
+      }
+    });
+  }, { threshold: 0.08 });
+
+  revealItems.forEach((item) => revealObserver.observe(item));
+
+  document.querySelectorAll("[data-placeholder-link]").forEach((link) => {
+    link.addEventListener("click", (event) => {
+      if (link.getAttribute("href") === "#") event.preventDefault();
+    });
   });
 
-  const sendHeight = () => {
-    const height = Math.ceil(document.documentElement.scrollHeight);
-    window.parent?.postMessage({ type: "resize", height }, "*");
-  };
-
-  new ResizeObserver(sendHeight).observe(document.documentElement);
-  window.addEventListener("load", sendHeight);
-  document.fonts?.ready.then(sendHeight);
-  [100, 400, 1000, 2200].forEach((delay) => setTimeout(sendHeight, delay));
+  setTimeout(sendResize, 100);
+  setTimeout(sendResize, 500);
+  setTimeout(sendResize, 1500);
 })();
