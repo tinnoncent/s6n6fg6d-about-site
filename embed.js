@@ -1,0 +1,1 @@
+(()=>{const send=()=>{const h=Math.max(document.documentElement.scrollHeight,document.body?.scrollHeight||0);window.parent.postMessage({type:"s6n6fg6d:embed-height",height:h},"*")};addEventListener("load",send);addEventListener("resize",send);if("ResizeObserver"in window)new ResizeObserver(send).observe(document.documentElement);setTimeout(send,250);setTimeout(send,1000)})();
