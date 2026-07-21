@@ -3,40 +3,52 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-  <meta name="theme-color" content="#050507">
+  <meta name="theme-color" content="#030305">
   <meta name="color-scheme" content="dark">
   <meta name="description" content="About S6N6FG6D.">
   <title>About — S6N6FG6D</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body class="is-loading">
-  <main class="about-world">
-    <video class="world-video" autoplay muted loop playsinline preload="metadata" poster="poster.jpg" aria-hidden="true">
+  <main class="about-page">
+    <video
+      class="world-video"
+      autoplay
+      muted
+      loop
+      playsinline
+      preload="metadata"
+      poster="poster.jpg"
+      aria-hidden="true">
       <source src="aboutvideo.mp4" type="video/mp4">
     </video>
 
-    <div class="world-shade" aria-hidden="true"></div>
+    <div class="shade" aria-hidden="true"></div>
+
+    <!-- LOCKED CRT STACK: DO NOT REMOVE -->
+    <div class="rainbow-bands" aria-hidden="true"></div>
     <div class="scanlines" aria-hidden="true"></div>
     <div class="grain" aria-hidden="true"></div>
+    <div class="sync-roll sync-roll--one" aria-hidden="true"></div>
+    <div class="sync-roll sync-roll--two" aria-hidden="true"></div>
     <div class="vignette" aria-hidden="true"></div>
 
     <div class="boot-screen" aria-live="polite">
-      <span>OPENING DIRECTORY</span><i></i>
+      <span>TRANSMISSION FOUND</span><i></i>
     </div>
 
-    <header class="directory-header">
-      <a class="brand" href="https://s6n6fg6d.com/" target="_top">⛧ 𝖘6𝖓6𝖋𝖌6𝖉 ⛧</a>
-      <span>LEVEL 06 // DIRECTORY</span>
+    <header class="topbar">
+      <a class="brand" href="https://s6n6fg6d.com/" target="_top">
+        ⛧ 𝖘6𝖓6𝖋𝖌6𝖉 ⛧
+      </a>
+      <span class="section-label">ABOUT</span>
     </header>
 
-    <section class="directory-panel">
-      <div class="directory-panel__edge" aria-hidden="true"></div>
-
-      <p class="eyebrow">ABOUT / OCCUPANT RECORD</p>
-      <h1>Objects from<br>a failed future.</h1>
-
-      <div class="copy">
-        <p><strong>⛧ 𝖘6𝖓6𝖋𝖌6𝖉 ⛧</strong> is the creative practice of an independent AI artist working at the intersection of horror, science fiction, and experimental design.</p>
+    <section class="copy-shell">
+      <div class="copy-panel">
+        <p class="intro">
+          <strong>⛧ 𝖘6𝖓6𝖋𝖌6𝖉 ⛧</strong> is the creative practice of an independent AI artist working at the intersection of horror, science fiction, and experimental design.
+        </p>
 
         <p>Every release begins as an obsession.</p>
 
@@ -46,22 +58,21 @@
 
         <p>The result is a growing collection of limited apparel, prints, music, and collectible objects shaped by a singular visual language—dark, surreal, and unmistakably <strong>⛧ 𝖘6𝖓6𝖋𝖌6𝖉 ⛧</strong>.</p>
 
-        <p class="closing">Some things are meant to be consumed.<br><strong>These are meant to be kept.</strong></p>
-      </div>
+        <p class="closing">
+          Some things are meant to be consumed.<br>
+          <strong>These are meant to be kept.</strong>
+        </p>
 
-      <a class="drop-button" id="dropButton" href="https://s6n6fg6d.com/collections/all">
-        <span>SHOP THE DROP</span>
-      </a>
-
-      <div class="directory-meta" aria-hidden="true">
-        <span>STATUS: ACTIVE</span>
-        <span>ACCESS: UNRESTRICTED</span>
-        <span>WATER: RISING</span>
+        <a class="drop-link" id="dropButton" href="https://s6n6fg6d.com/collections/all">
+          <span>SHOP THE DROP</span>
+          <i aria-hidden="true">↗</i>
+        </a>
       </div>
     </section>
 
-    <p class="corner-note" aria-hidden="true">THE DIRECTORY REMAINS OPERATIONAL DESPITE TOTAL STRUCTURAL FAILURE.</p>
+    <p class="footer-note" aria-hidden="true">CORRUPTED GOODS // LIMITED OBJECTS // PERMANENT DAMAGE</p>
   </main>
+
   <script src="script.js"></script>
 </body>
 </html>
