@@ -3,16 +3,18 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-  <meta name="theme-color" content="#030305">
+  <meta name="theme-color" content="#050505">
   <meta name="color-scheme" content="dark">
   <meta name="description" content="About S6N6FG6D.">
   <title>About — S6N6FG6D</title>
+  <link rel="preload" href="poster.jpg" as="image">
   <link rel="stylesheet" href="styles.css">
 </head>
-<body class="is-loading">
-  <main class="about-page">
+<body>
+  <main class="page">
     <video
-      class="world-video"
+      id="backgroundVideo"
+      class="background-video"
       autoplay
       muted
       loop
@@ -23,30 +25,23 @@
       <source src="aboutvideo.mp4" type="video/mp4">
     </video>
 
-    <div class="shade" aria-hidden="true"></div>
+    <div class="background-overlay" aria-hidden="true"></div>
+    <div class="chromatic-bands" aria-hidden="true"></div>
+    <div class="neon-edge-glow" aria-hidden="true"></div>
 
-    <!-- LOCKED CRT STACK: DO NOT REMOVE -->
-    <div class="rainbow-bands" aria-hidden="true"></div>
-    <div class="scanlines" aria-hidden="true"></div>
-    <div class="grain" aria-hidden="true"></div>
-    <div class="sync-roll sync-roll--one" aria-hidden="true"></div>
-    <div class="sync-roll sync-roll--two" aria-hidden="true"></div>
-    <div class="vignette" aria-hidden="true"></div>
-
-    <div class="boot-screen" aria-live="polite">
-      <span>TRANSMISSION FOUND</span><i></i>
-    </div>
-
-    <header class="topbar">
-      <a class="brand" href="https://s6n6fg6d.com/" target="_top">
+    <header class="site-header">
+      <a class="wordmark" href="https://s6n6fg6d.com/" target="_top">
         ⛧ 𝖘6𝖓6𝖋𝖌6𝖉 ⛧
       </a>
-      <span class="section-label">ABOUT</span>
+
+      <span class="page-label">ABOUT</span>
     </header>
 
-    <section class="copy-shell">
-      <div class="copy-panel">
-        <p class="intro">
+    <section class="about-layout">
+      <article class="about-copy">
+        <h1>About</h1>
+
+        <p class="lead">
           <strong>⛧ 𝖘6𝖓6𝖋𝖌6𝖉 ⛧</strong> is the creative practice of an independent AI artist working at the intersection of horror, science fiction, and experimental design.
         </p>
 
@@ -63,14 +58,15 @@
           <strong>These are meant to be kept.</strong>
         </p>
 
-        <a class="drop-link" id="dropButton" href="https://s6n6fg6d.com/collections/all">
-          <span>SHOP THE DROP</span>
-          <i aria-hidden="true">↗</i>
+        <a
+          class="shop-link"
+          href="https://s6n6fg6d.com/collections/all"
+          target="_top">
+          SHOP THE DROP
+          <span aria-hidden="true">→</span>
         </a>
-      </div>
+      </article>
     </section>
-
-    <p class="footer-note" aria-hidden="true">CORRUPTED GOODS // LIMITED OBJECTS // PERMANENT DAMAGE</p>
   </main>
 
   <script src="script.js"></script>
